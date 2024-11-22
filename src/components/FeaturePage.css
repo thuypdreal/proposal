@@ -108,14 +108,11 @@ h1, h2, h3 {
 /* Slider controls */
 .slick-prev,
 .slick-next {
+  background: rgba(255, 255, 255, 0.9) !important;
   width: 50px !important;
   height: 50px !important;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.9) !important;
   border-radius: 50%;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+  z-index: 10;
 }
 
 .slick-prev {
@@ -132,11 +129,6 @@ h1, h2, h3 {
   color: #00A0E3 !important;
   opacity: 1;
   line-height: 1;
-}
-
-.slick-prev:hover,
-.slick-next:hover {
-  background: rgba(255, 255, 255, 0.9) !important;
 }
 
 .slick-arrow {
@@ -1094,4 +1086,29 @@ h1, h2, h3 {
     width: 30px;
     height: 30px;
   }
+}
+
+/* Xóa các hiệu ứng lật trang cũ và thêm hiệu ứng mở ra mới */
+.slick-slider {
+  overflow: hidden;
+}
+
+.slick-slide {
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.slick-current {
+  opacity: 1;
+}
+
+/* Xóa bỏ các hiệu ứng transform và scale */
+.sliding .slick-slide,
+.slick-slide:not(.slick-current) {
+  transform: none;
+}
+
+/* Loại bỏ các hiệu ứng transition khác */
+.slick-track {
+  transition: none;
 }

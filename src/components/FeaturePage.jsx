@@ -5,6 +5,16 @@ import "slick-carousel/slick/slick-theme.css";
 import './FeaturePage.css';
 
 const FeaturePage = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    cssEase: 'linear'
+  };
+
   const slides = [
     {
       title: "GIẢI PHÁP QUẢN LÝ KHU VUI CHƠI THÔNG MINH",
@@ -153,23 +163,6 @@ const FeaturePage = () => {
       }
     }
   ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    adaptiveHeight: true,
-    autoplay: false,
-    pauseOnHover: true,
-    customPaging: function(i) {
-      return (
-        <button aria-label={`Slide ${i + 1}`} />
-      );
-    }
-  };
 
   const renderSlide = (slide) => {
     switch(slide.type) {
