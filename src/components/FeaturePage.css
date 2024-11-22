@@ -1,3 +1,16 @@
+/* Import font Merriweather */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
+/* Reset font family cho toàn bộ ứng dụng */
+* {
+  font-family: 'Merriweather', serif;
+}
+
+/* Điều chỉnh font-weight cho các heading */
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+}
+
 /* Xóa bỏ các định nghĩa trùng lặp ở đầu file và chỉ giữ lại phiên bản mới nhất */
 
 /* Cấu trúc chính */
@@ -70,8 +83,9 @@
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 3rem;
   color: white;
   margin-bottom: 40px;
   white-space: pre-line;
@@ -83,8 +97,9 @@
 }
 
 .hero-content h2 {
-  font-size: 4.5rem;
-  font-weight: 800;
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 3.8rem;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
@@ -162,9 +177,10 @@
 }
 
 .business-type-item p {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
   color: white;
-  font-size: 1.6rem;
-  font-weight: 600;
   margin-top: 15px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   letter-spacing: 0.5px;
@@ -280,12 +296,12 @@
   }
   
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 30px;
   }
   
   .hero-content h2 {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
   
   .hero-content {
@@ -322,7 +338,7 @@
   }
   
   .business-types-slide h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 40px;
   }
   
@@ -345,11 +361,20 @@
 }
 
 .contact-info {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  text-align: center;
   color: white;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0.5px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .contact-info a {
@@ -387,6 +412,9 @@
 }
 
 .system-overview-slide h2 {
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 2.8rem;
   color: #333;
   font-size: 2.5rem;
   font-weight: 700;
@@ -488,8 +516,9 @@
 }
 
 .integration-item span {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  font-size: 0.85rem;
   text-align: center;
 }
 
@@ -582,6 +611,12 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
+}
+
+.control-item span {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  font-size: 0.85rem;
 }
 
 /* Responsive */
@@ -726,7 +761,9 @@
 }
 
 .deployment-slide h2 {
-  font-size: 3rem;
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 60px;
   text-align: center;
@@ -776,14 +813,17 @@
 }
 
 .deployment-step h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
   margin-bottom: 15px;
 }
 
 .deployment-step p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-family: 'Merriweather', serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.6;
   opacity: 0.9;
 }
 
@@ -799,7 +839,9 @@
 }
 
 .support-section h3 {
-  font-size: 2rem;
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 1.8rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
@@ -821,6 +863,12 @@
 
 .support-icon {
   font-size: 2rem;
+}
+
+.support-item span {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 
 /* Responsive */
@@ -851,4 +899,51 @@
   .support-section {
     padding: 20px;
   }
+}
+
+/* Dots styling */
+.slick-dots {
+  bottom: 20px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+}
+
+.slick-dots li {
+  width: 12px !important;
+  height: 12px !important;
+  margin: 0 !important;
+}
+
+.slick-dots li button {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.slick-dots li button:before {
+  content: '' !important; /* Bỏ số trong dots */
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+}
+
+/* Active dot */
+.slick-dots li.slick-active button {
+  border-color: white;
+  background: white;
+  transform: scale(1.1);
+}
+
+/* Hover effect */
+.slick-dots li:hover button {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.3);
 }

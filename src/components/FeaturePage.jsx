@@ -116,7 +116,12 @@ const FeaturePage = () => {
     arrows: true,
     adaptiveHeight: true,
     autoplay: false,
-    pauseOnHover: true
+    pauseOnHover: true,
+    customPaging: function(i) {
+      return (
+        <button aria-label={`Slide ${i + 1}`} />
+      );
+    }
   };
 
   const renderSlide = (slide) => {
