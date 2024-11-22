@@ -17,23 +17,23 @@ const FeaturePage = () => {
       title: "Phù hợp hầu hết với tất cả các loại hình vui chơi",
       items: [
         {
-          icon: "/icons/theme-park.png", // Icon công viên chủ đề
+          icon: "/icons/theme-park.png",
           text: "CÔNG VIÊN CHỦ ĐỀ"
         },
         {
-          icon: "/icons/water-park.png", // Icon công viên nước
+          icon: "/icons/water-park.png",
           text: "CÔNG VIÊN NƯỚC"
         },
         {
-          icon: "/icons/mall.png", // Icon trung tâm giải trí
+          icon: "/icons/mall.png",
           text: "TRUNG TÂM GIẢI TRÍ"
         },
         {
-          icon: "/icons/temple.png", // Icon du lịch tâm linh
+          icon: "/icons/temple.png",
           text: "DU LỊCH TÂM LINH"
         },
         {
-          icon: "/icons/climbing.png", // Icon tổ hợp tắm khoáng
+          icon: "/icons/climbing.png",
           text: "TỔ HỢP TẮM KHOÁNG"
         }
       ],
@@ -71,51 +71,39 @@ const FeaturePage = () => {
       }
     },
     {
-      id: 1,
-      icon: "🎫",
-      title: "Quản lý vé và đặt chỗ",
-      description: "Hệ thống bán vé thông minh, đặt chỗ trực tuyến, quét mã QR. Theo dõi lượt vào ra và thống kê doanh thu chi tiết.",
-      type: "feature"
-    },
-    {
-      id: 2, 
-      icon: "👥",
-      title: "Quản lý khách hàng",
-      description: "Lưu trữ thông tin khách hàng, lịch sử sử dụng dịch vụ. Chương trình thành viên và tích điểm thưởng tự động.",
-      type: "feature"
-    },
-    {
-      id: 3,
-      icon: "🎮",
-      title: "Quản lý thiết bị và trò chơi",
-      description: "Theo dõi tình trạng thiết bị, lịch bảo trì, đảm bảo an toàn. Phân bổ nhân viên vận hành hiệu quả.",
-      type: "feature"
-    },
-    {
-      id: 4,
-      icon: "📊",
-      title: "Báo cáo và phân tích",
-      description: "Thống kê doanh thu, lượt khách, đánh giá hiệu suất từng khu vực. Báo cáo chi tiết theo thời gian thực.",
-      type: "feature"
-    },
-    {
-      id: 5,
-      icon: "🏪",
-      title: "Quản lý cửa hàng và dịch vụ",
-      description: "Quản lý bán hàng, kho hàng, dịch vụ ăn uống. Tích hợp thanh toán đa kênh, hóa đơn điện tử.",
-      type: "feature"
-    },
-    {
-      id: 6,
-      icon: "📱",
-      title: "Ứng dụng di động",
-      description: "App di động cho khách hàng đặt vé, xem thông tin, tích điểm. App quản lý cho nhân viên vận hành.",
-      type: "feature"
-    },
-    {
-      title: "Bắt đầu số hóa khu vui chơi của bạn",
-      description: "Liên hệ ngay để được tư vấn giải pháp phù hợp nhất",
-      type: "cta"
+      title: "MÔ HÌNH TRIỂN KHAI",
+      type: "deployment-model",
+      steps: [
+        {
+          icon: "/icons/requirement.png",
+          title: "Khảo sát & Phân tích",
+          description: "Khảo sát hiện trạng, phân tích yêu cầu và đề xuất giải pháp phù hợp"
+        },
+        {
+          icon: "/icons/design.png",
+          title: "Thiết kế & Tùy biến",
+          description: "Thiết kế giao diện, tùy chỉnh tính năng theo yêu cầu đặc thù"
+        },
+        {
+          icon: "/icons/setup.png",
+          title: "Triển khai & Cài đặt",
+          description: "Lắp đặt thiết bị, cài đặt phần mềm và tích hợp hệ thống"
+        },
+        {
+          icon: "/icons/training.png",
+          title: "Đào tạo & Bàn giao",
+          description: "Đào tạo nhân viên vận hành, bàn giao tài liệu hướng dẫn"
+        }
+      ],
+      support: {
+        title: "HỖ TRỢ SAU TRIỂN KHAI",
+        items: [
+          { icon: "🔧", text: "Bảo trì định kỳ" },
+          { icon: "🚨", text: "Hỗ trợ 24/7" },
+          { icon: "⚡", text: "Xử lý sự cố khẩn cấp" },
+          { icon: "⬆️", text: "Nâng cấp hệ thống" }
+        ]
+      }
     }
   ];
 
@@ -210,22 +198,32 @@ const FeaturePage = () => {
             </div>
           </div>
         );
-      case 'feature':
+      case 'deployment-model':
         return (
-          <div className="feature-slide slide">
-            <div className="feature-card">
-              <div className="feature-icon">{slide.icon}</div>
-              <h3>{slide.title}</h3>
-              <p>{slide.description}</p>
-            </div>
-          </div>
-        );
-      case 'cta':
-        return (
-          <div className="cta-section slide">
+          <div className="deployment-slide slide">
             <h2>{slide.title}</h2>
-            <p>{slide.description}</p>
-            <button className="cta-button">Liên hệ tư vấn</button>
+            <div className="deployment-steps">
+              {slide.steps.map((step, index) => (
+                <div key={index} className="deployment-step">
+                  <div className="step-icon">
+                    <img src={step.icon} alt={step.title} />
+                  </div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="support-section">
+              <h3>{slide.support.title}</h3>
+              <div className="support-items">
+                {slide.support.items.map((item, index) => (
+                  <div key={index} className="support-item">
+                    <span className="support-icon">{item.icon}</span>
+                    <span>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         );
       default:
