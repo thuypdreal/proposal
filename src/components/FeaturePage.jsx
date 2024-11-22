@@ -42,64 +42,31 @@ const FeaturePage = () => {
     {
       title: "MÔ HÌNH TỔNG QUAN HỆ THỐNG",
       type: "system-overview",
-      legend: [
-        { text: "Kênh bán", color: "red" },
-        { text: "Sử dụng, kiểm soát", color: "blue" },
-        { text: "Thanh toán", color: "green" }
-      ],
       components: {
         payments: [
-          "ViettelPay", "VNPay", "ZaloPay", "PayPal"
+          { icon: "/icons/payment/vnpay.png", name: "VNPay" },
+          { icon: "/icons/payment/momo.png", name: "Momo" },
+          { icon: "/icons/payment/zalopay.png", name: "ZaloPay" },
+          { icon: "/icons/payment/onepay.png", name: "OnePay" }
         ],
+        core: {
+          Payment: { icon: "/icons/payment-box.png" },
+          Center: { icon: "/icons/gear.png" },
+          Ticket: { icon: "/icons/ticket-box.png" }
+        },
         integrations: [
-          {
-            name: "Mobile App",
-            icon: "/icons/mobile-app.png",
-            color: "red"
-          },
-          {
-            name: "B2C/B2B",
-            icon: "/icons/b2c-b2b.png",
-            color: "red"
-          },
-          {
-            name: "OTA & eCommerce",
-            icon: "/icons/ota.png",
-            color: "yellow"
-          },
-          {
-            name: "Ticket Counter",
-            icon: "/icons/ticket-counter.png",
-            color: "purple"
-          },
-          {
-            name: "SmartPOS",
-            icon: "/icons/smart-pos.png",
-            color: "purple"
-          },
-          {
-            name: "Kiosk",
-            icon: "/icons/kiosk.png",
-            color: "blue"
-          }
+          { name: "Mobile App", icon: "/icons/mobile-app.png", color: "blue" },
+          { name: "B2C/B2B", icon: "/icons/b2c.png", color: "red" },
+          { name: "Social", icon: "/icons/social.png", color: "yellow" },
+          { name: "OTAs, eCommerce", icon: "/icons/ecommerce.png", color: "orange" },
+          { name: "Ticketcounter", icon: "/icons/ticket.png", color: "green" },
+          { name: "Self Kiosk", icon: "/icons/kiosk.png", color: "purple" }
         ],
         controls: [
-          {
-            name: "Access Control",
-            icon: "/icons/access-control.png"
-          },
-          {
-            name: "Digital",
-            icon: "/icons/digital.png"
-          },
-          {
-            name: "Mobile Check",
-            icon: "/icons/mobile-check.png"
-          },
-          {
-            name: "Smart Lock",
-            icon: "/icons/smart-lock.png"
-          }
+          { name: "Access Control", icon: "/icons/access.png" },
+          { name: "Display", icon: "/icons/display.png" },
+          { name: "Mobile Check", icon: "/icons/mobile-check.png" },
+          { name: "Smart Lock", icon: "/icons/smart-lock.png" }
         ]
       }
     },
@@ -198,6 +165,51 @@ const FeaturePage = () => {
             </div>
           </div>
         );
+      case 'system-overview':
+        return (
+          <div className="system-overview-slide slide">
+            <h2>{slide.title}</h2>
+            <div className="system-diagram">
+              {/* Payment Methods */}
+              <div className="payment-box">
+                <div className="payment-methods">
+                  {slide.components.payments.map((payment, index) => (
+                    <img key={index} src={payment.icon} alt={payment.name} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Core System */}
+              <div className="core-system">
+                <div className="Payment-box">Payment</div>
+                <div className="Center-box">
+                  <img src={slide.components.core.Center.icon} alt="Center" />
+                </div>
+                <div className="Ticket-box">Ticket system</div>
+              </div>
+
+              {/* Integrations */}
+              <div className="integrations">
+                {slide.components.integrations.map((item, index) => (
+                  <div key={index} className={`integration-item ${item.color}`}>
+                    <img src={item.icon} alt={item.name} />
+                    <span>{item.name}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Control Systems */}
+              <div className="control-systems">
+                {slide.components.controls.map((control, index) => (
+                  <div key={index} className="control-item">
+                    <img src={control.icon} alt={control.name} />
+                    <span>{control.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
       case 'feature':
         return (
           <div className="feature-slide slide">
@@ -214,61 +226,6 @@ const FeaturePage = () => {
             <h2>{slide.title}</h2>
             <p>{slide.description}</p>
             <button className="cta-button">Liên hệ tư vấn</button>
-          </div>
-        );
-      case 'system-overview':
-        return (
-          <div className="system-overview-slide slide">
-            <h2>{slide.title}</h2>
-            
-            {/* Legend */}
-            <div className="system-legend">
-              {slide.legend.map((item, index) => (
-                <div key={index} className="legend-item">
-                  <span className="legend-dot" style={{backgroundColor: item.color}}></span>
-                  <span className="legend-text">{item.text}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* System Diagram */}
-            <div className="system-diagram">
-              {/* Payment Methods */}
-              <div className="payment-methods">
-                {slide.components.payments.map((payment, index) => (
-                  <div key={index} className="payment-item">
-                    <img src={`/icons/payment/${payment.toLowerCase()}.png`} alt={payment} />
-                  </div>
-                ))}
-              </div>
-
-              {/* Core System */}
-              <div className="core-system">
-                <div className="Pa-box">Payment</div>
-                <div className="C-box"></div>
-                <div className="Ticket-box">CtrlPark System</div>
-              </div>
-
-              {/* Integrations */}
-              <div className="integrations">
-                {slide.components.integrations.map((integration, index) => (
-                  <div key={index} className={`integration-item ${integration.color}`}>
-                    <img src={integration.icon} alt={integration.name} />
-                    <span>{integration.name}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Control Systems */}
-              <div className="control-systems">
-                {slide.components.controls.map((control, index) => (
-                  <div key={index} className="control-item">
-                    <img src={control.icon} alt={control.name} />
-                    <span>{control.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         );
       default:

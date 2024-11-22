@@ -181,10 +181,49 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   margin-bottom: 15px;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.business-type-icon::before,
+.business-type-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  opacity: 0;
+  z-index: -1;
+  animation: none;
+}
+
+.business-type-icon:hover::before {
+  animation: ripple 2s infinite ease-out;
+}
+
+.business-type-icon:hover::after {
+  animation: ripple 2s infinite ease-out 0.5s;
+}
+
+@keyframes ripple {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+  }
+  100% {
+    width: 150%;
+    height: 150%;
+    opacity: 0;
+  }
 }
 
 .business-type-icon:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .business-types-grid {
@@ -350,34 +389,9 @@
 .system-overview-slide h2 {
   color: #333;
   font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
+  font-weight: 700;
+  margin-bottom: 40px;
   text-align: center;
-}
-
-/* Legend */
-.system-legend {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
-  justify-content: center;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.legend-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.legend-text {
-  font-size: 1rem;
-  color: #333;
 }
 
 /* System Diagram */
@@ -385,27 +399,29 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-
-/* Payment Methods Box */
-.payment-methods {
-  border: 2px dashed #666;
-  padding: 15px;
   display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  max-width: 300px;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
 }
 
-.payment-item img {
-  width: 40px;
+/* Payment Box */
+.payment-box {
+  border: 2px dashed #666;
+  padding: 20px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.payment-methods img {
   height: 40px;
-  object-fit: contain;
+  width: auto;
 }
 
 /* Core System */
@@ -414,63 +430,145 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
+  margin: 40px 0;
+  position: relative;
 }
 
-.Pa-box, .C-box, .Ticket-box {
-  padding: 20px;
+.Payment-box, .Ticket-box {
+  padding: 15px 30px;
   border: 2px solid #333;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 150px;
-  background: white;
+  font-weight: bold;
 }
 
-.C-box {
-  width: 100px;
-  height: 100px;
-  background-image: url('../assets/icons/gear.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.Center-box {
+  width: 60px;
+  height: 60px;
+}
+
+.Center-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Integrations */
 .integrations {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 60px 0;
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+  gap: 30px;
 }
 
 .integration-item {
+  flex: 0 1 calc(16.666% - 25px);
+  min-width: 150px;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+  position: relative;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.integration-item:hover {
+  transform: translateY(-5px);
 }
 
 .integration-item img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
 }
 
 .integration-item span {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-align: center;
-  color: #333;
+}
+
+/* Màu sắc cho các integration items */
+.integration-item.blue { 
+  color: #0066cc;
+  background: rgba(0, 102, 204, 0.1);
+  border-radius: 12px;
+}
+.integration-item.red { 
+  color: #cc0000;
+  background: rgba(204, 0, 0, 0.1);
+  border-radius: 12px;
+}
+.integration-item.yellow { 
+  color: #ccaa00;
+  background: rgba(204, 170, 0, 0.1);
+  border-radius: 12px;
+}
+.integration-item.orange { 
+  color: #cc6600;
+  background: rgba(204, 102, 0, 0.1);
+  border-radius: 12px;
+}
+.integration-item.green { 
+  color: #00cc66;
+  background: rgba(0, 204, 102, 0.1);
+  border-radius: 12px;
+}
+.integration-item.purple { 
+  color: #8833cc;
+  background: rgba(136, 51, 204, 0.1);
+  border-radius: 12px;
+}
+
+/* Điều chỉnh đường kẻ */
+.integration-item::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background-color: #666;
+  transform: translateX(-50%);
+}
+
+.integrations::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background-color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .integration-item {
+    flex: 0 1 calc(33.333% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .integration-item {
+    flex: 0 1 calc(50% - 15px);
+  }
 }
 
 /* Control Systems */
 .control-systems {
+  border: 2px dashed #666;
+  padding: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  border: 2px dashed #666;
-  padding: 20px;
-  margin-top: 30px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .control-item {
@@ -486,38 +584,132 @@
   object-fit: contain;
 }
 
-.control-item span {
-  font-size: 0.9rem;
-  text-align: center;
-  color: #333;
-}
-
-/* Connection Lines */
-.system-diagram::before,
-.system-diagram::after {
-  content: '';
-  position: absolute;
-  background: #333;
-  width: 2px;
-  height: 30px;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  .system-overview-slide h2 {
-    font-size: 2rem;
+  .system-diagram {
+    gap: 20px;
   }
-  
-  .system-legend {
-    flex-direction: column;
-    align-items: center;
+
+  .integrations {
+    flex-wrap: wrap;
+    gap: 20px;
   }
-  
+
   .control-systems {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .integrations::before {
+    left: 5%;
+    right: 5%;
+  }
   
-  .integrations {
-    grid-template-columns: repeat(2, 1fr);
+  .integration-item::before {
+    height: 20px;
+    top: -20px;
+  }
+  
+  .core-system::after {
+    height: 30px;
+    bottom: -30px;
+  }
+}
+
+/* Thêm keyframes cho hiệu ứng chảy */
+@keyframes flowLine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes flowLineVertical {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Cập nhật style cho đường kẻ ngang */
+.integrations::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    #666 50%,
+    transparent 50%
+  );
+  background-size: 20px 2px;
+  animation: flowLine 1s linear infinite;
+}
+
+/* Cập nhật style cho đường kẻ dọc từ Ticket System */
+.core-system::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background-image: linear-gradient(
+    to bottom,
+    #666 50%,
+    transparent 50%
+  );
+  background-size: 2px 20px;
+  transform: translateX(-50%);
+  animation: flowLineVertical 1s linear infinite;
+}
+
+/* Cập nhật style cho đường kẻ dọc đến các integration items */
+.integration-item::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background-image: linear-gradient(
+    to bottom,
+    #666 50%,
+    transparent 50%
+  );
+  background-size: 2px 20px;
+  transform: translateX(-50%);
+  animation: flowLineVertical 1s linear infinite;
+}
+
+/* Thêm hiệu ứng hover cho integration items */
+.integration-item:hover::before {
+  animation-duration: 0.5s; /* Tăng tốc độ animation khi hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .integrations::before {
+    background-size: 15px 2px; /* Điều chỉnh kích thước cho màn hình nhỏ */
+  }
+
+  .integration-item::before,
+  .core-system::after {
+    background-size: 2px 15px;
+  }
+}
+
+/* Tùy chọn: Thêm prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .integrations::before,
+  .integration-item::before,
+  .core-system::after {
+    animation: none;
+    background: #666;
   }
 }
