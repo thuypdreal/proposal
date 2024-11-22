@@ -1,0 +1,1426 @@
+.feature-page {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  padding: 30px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Giữ lại các styles cũ và thêm styles mới cho slider */
+
+.feature-page {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slide {
+  min-height: 70vh;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Tùy chỉnh nút điều hướng */
+.slick-prev, .slick-next {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 40px;
+  color: #3498db;
+}
+
+/* Tùy chỉnh dots */
+.slick-dots {
+  bottom: 20px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #3498db;
+}
+
+.feature-slide .feature-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Animation cho slides */
+.slick-slide {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slick-slide.slick-active {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide {
+    min-height: 50vh;
+    padding: 20px;
+  }
+  
+  .slick-prev, .slick-next {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    font-size: 30px;
+  }
+}
+/* ... styles cũ giữ nguyên */
+
+.hero-background {
+  background: linear-gradient(135deg, #00A0E3 0%, #0047BB 100%);
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-container {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 30px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.hero-content h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.contact-info {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.contact-info p {
+  color: white;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo-container {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .logo {
+    width: 100px;
+  }
+}
+
+/* Thêm góc bo tròn cho background */
+.hero-background::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: #00A0E3;
+  border-radius: 100% 0 0 0;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: #FFD100;
+  border-radius: 0 0 100% 0;
+}
+.feature-page {
+  padding: 0;  /* Bỏ padding */
+  max-width: 100%;  /* Full width */
+  margin: 0;  /* Bỏ margin */
+  height: 100vh;  /* Full height */
+  overflow: hidden;  /* Tránh scroll */
+}
+
+/* Cập nhật style cho slide */
+.slide {
+  min-height: 100vh !important;  /* Full height */
+  width: 100vw !important;  /* Full width */
+  padding: 0;  /* Bỏ padding */
+  margin: 0;  /* Bỏ margin */
+}
+
+/* Cập nhật hero background */
+.hero-background {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 40px;
+  margin: 0;
+  position: relative;
+  background: linear-gradient(135deg, #00A0E3 0%, #0047BB 100%);
+}
+
+/* Điều chỉnh vị trí nút điều hướng */
+.slick-prev {
+  left: 40px;
+  z-index: 10;
+}
+
+.slick-next {
+  right: 40px;
+  z-index: 10;
+}
+
+/* Điều chỉnh vị trí dots */
+.slick-dots {
+  bottom: 40px;
+  z-index: 10;
+}
+
+/* Điều chỉnh feature slides */
+.feature-slide {
+  background: white;
+  width: 100vw !important;
+  min-height: 100vh !important;
+}
+
+.feature-card {
+  max-width: 800px;  /* Tăng kích thước card */
+  margin: 0 auto;
+  padding: 60px;
+}
+
+/* Điều chỉnh CTA section */
+.cta-section {
+  width: 100vw !important;
+  min-height: 100vh !important;
+  background: linear-gradient(135deg, #00A0E3 0%, #0047BB 100%);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slick-prev {
+    left: 20px;
+  }
+  
+  .slick-next {
+    right: 20px;
+  }
+  
+  .feature-card {
+    padding: 30px;
+  }
+}
+
+/* Thêm style cho slider container */
+.slick-slider {
+  width: 100vw;
+  height: 100vh;
+}
+
+.slick-list, .slick-track {
+  height: 100%;
+}
+/* Điều chỉnh hero section */
+.hero-section {
+  text-align: center;
+  margin: 0;  /* Bỏ margin */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-background {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;  /* Bỏ padding */
+  margin: 0;
+  position: relative;
+  background: linear-gradient(135deg, #00A0E3 0%, #0047BB 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-container {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 2;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  margin-top: -40px; /* Điều chỉnh vị trí lên trên một chút */
+}
+
+.hero-content h1 {
+  font-size: 3rem;  /* Tăng kích thước chữ */
+  font-weight: bold;
+  color: white;
+  margin-bottom: 30px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 900px;  /* Giới hạn chiều rộng */
+}
+
+.hero-content h2 {
+  font-size: 4rem;  /* Tăng kích thước chữ */
+  font-weight: bold;
+  color: white;
+}
+
+.contact-info {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 2;
+}
+
+/* Điều chỉnh responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    bottom: 80px; /* Điều chỉnh vị trí để không bị che bởi dots */
+  }
+}
+
+/* Điều chỉnh dots và arrows */
+.slick-dots {
+  bottom: 20px;
+}
+
+.slick-dots li button:before {
+  color: white !important; /* Đổi màu dots thành trắng */
+}
+
+.slick-prev:before, 
+.slick-next:before {
+  color: white !important; /* Đổi màu arrows thành trắng */
+}
+/* Styles cho slide business types */
+.business-types-slide {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.business-types-slide h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.business-types-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.business-type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.business-type-icon {
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.business-type-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.business-type-item p {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .business-types-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .business-types-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .business-types-slide h2 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .business-type-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+/* Cập nhật style cho business types slide */
+.business-types-slide {
+  background: #00A0E3;  /* Đổi background thành màu xanh */
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.business-types-slide h2 {
+  font-size: 2.2rem;
+  color: white;  /* Đổi màu chữ thành trắng */
+  margin-bottom: 80px;
+  padding: 0 20px;
+  font-weight: 500;
+}
+
+.business-types-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;  /* Tăng khoảng cách giữa các items */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.business-type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.business-type-icon {
+  width: 140px;  /* Tăng kích thước icon */
+  height: 140px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.business-type-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.business-type-icon img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+}
+
+.business-type-item p {
+  font-size: 0.9rem;
+  color: white;  /* Đổi màu chữ thành trắng */
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Thêm decoration elements */
+.business-types-slide::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100% 0 0 0;
+}
+
+.business-types-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: #FFD100;  /* Thêm góc màu vàng */
+  border-radius: 0 0 100% 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .business-types-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .business-type-icon {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .business-types-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .business-types-slide h2 {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .business-type-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .business-type-item p {
+    font-size: 0.8rem;
+  }
+}
+/* Styles cho system overview slide */
+.system-overview-slide {
+  background: white;
+  padding: 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.system-overview-slide h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Legend styles */
+.system-legend {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* System diagram */
+.system-diagram {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+/* Payment methods */
+.payment-methods {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.payment-item img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Core system */
+.core-system {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.ezPa-box, .ezC-box, .ezTicket-box {
+  padding: 20px;
+  border-radius: 10px;
+  background: #00A0E3;
+  color: white;
+  text-align: center;
+}
+
+/* Integrations */
+.integrations {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.integration-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.integration-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.integration-item span {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Control systems */
+.control-systems {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  border: 2px dashed #ff0000;
+  padding: 20px;
+}
+
+.control-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.control-item span {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Connection lines */
+.system-diagram::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: #00A0E3;
+  transform: translate(-50%, -50%);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .system-diagram {
+    gap: 30px;
+  }
+  
+  .control-systems {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .system-overview-slide {
+    padding: 20px;
+  }
+  
+  .system-legend {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .core-system {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .integrations {
+    gap: 20px;
+  }
+}
+/* Styles cho system overview slide */
+.system-overview-slide {
+  background: white;
+  padding: 60px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.system-overview-slide h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Legend styles */
+.system-legend {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-text {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* System diagram */
+.system-diagram {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 40px;
+  padding: 20px;
+}
+
+/* Payment methods */
+.payment-methods {
+  border: 2px dashed #00A0E3;
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 160, 227, 0.05);
+  border-radius: 10px;
+}
+
+.payment-item img {
+  height: 35px;
+  object-fit: contain;
+}
+
+/* Core system */
+.core-system {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.ezPa-box, .ezC-box, .ezTicket-box {
+  padding: 15px 30px;
+  border-radius: 8px;
+  background: #00A0E3;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 160, 227, 0.2);
+}
+
+/* Integrations */
+.integrations {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.integration-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: calc(16.666% - 34px);
+}
+
+.integration-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  padding: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.integration-item span {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Màu sắc cho các integration */
+.integration-item.red img { border: 2px solid #FF0000; }
+.integration-item.blue img { border: 2px solid #0000FF; }
+.integration-item.yellow img { border: 2px solid #FFD100; }
+.integration-item.purple img { border: 2px solid #800080; }
+
+/* Control systems */
+.control-systems {
+  border: 2px dashed #FF0000;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  background: rgba(255, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.control-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-item img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.control-item span {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Connection lines */
+.system-diagram::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 80%;
+  background: #00A0E3;
+  transform: translate(-50%, -50%);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .system-diagram {
+    gap: 30px;
+  }
+  
+  .integration-item {
+    width: calc(33.333% - 27px);
+  }
+  
+  .control-systems {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .system-overview-slide {
+    padding: 30px 20px;
+  }
+  
+  .system-legend {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .integration-item {
+    width: calc(50% - 20px);
+  }
+  
+  .payment-methods {
+    flex-wrap: wrap;
+  }
+  
+  .core-system {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/* Xóa bỏ phần connection lines */
+/* .system-diagram::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 80%;
+  background: #00A0E3;
+  transform: translate(-50%, -50%);
+} */
+
+/* Thêm style cho các kết nối ngang giữa các box */
+.core-system {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.core-system::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #00A0E3;
+  z-index: 0;
+}
+
+.Pa-box, .C-box, .Ticket-box {
+  padding: 15px 30px;
+  border-radius: 8px;
+  background: #00A0E3;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 160, 227, 0.2);
+  position: relative;
+  z-index: 1;
+}
+/* Điều chỉnh nút chuyển slide */
+.slick-prev, 
+.slick-next {
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.slick-prev {
+  left: 30px !important;
+}
+
+.slick-next {
+  right: 30px !important;
+}
+
+.slick-prev:before, 
+.slick-next:before {
+  font-size: 30px;
+  color: #00A0E3 !important;
+  opacity: 1;
+  line-height: 1;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: white !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .slick-prev {
+    left: 10px !important;
+  }
+  
+  .slick-next {
+    right: 10px !important;
+  }
+  
+  .slick-prev, 
+  .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slick-prev:before, 
+  .slick-next:before {
+    font-size: 24px;
+  }
+}
+/* Điều chỉnh nút chuyển slide */
+.slick-prev,
+.slick-next {
+  width: 50px !important;
+  height: 50px !important;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev {
+  left: 30px !important;
+}
+
+.slick-next {
+  right: 30px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px;
+  color: #00A0E3 !important;
+  opacity: 1;
+  line-height: 1;
+}
+
+/* Hover effects */
+.slick-prev:hover,
+.slick-next:hover {
+  background: white !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+
+/* Đảm bảo nút luôn hiển thị */
+.slick-arrow {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slick-prev {
+    left: 15px !important;
+  }
+  
+  .slick-next {
+    right: 15px !important;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 24px;
+  }
+}
+/* Điều chỉnh nút chuyển slide */
+.slick-prev,
+.slick-next {
+  width: 50px !important;
+  height: 50px !important;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev {
+  left: 30px !important;
+}
+
+.slick-next {
+  right: 30px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px;
+  color: #00A0E3 !important;
+  opacity: 1;
+  line-height: 1;
+}
+
+/* Xóa tất cả hiệu ứng hover */
+.slick-prev:hover,
+.slick-next:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Đảm bảo nút luôn hiển thị */
+.slick-arrow {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slick-prev {
+    left: 15px !important;
+  }
+  
+  .slick-next {
+    right: 15px !important;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 24px;
+  }
+}
+.logo {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Điều chỉnh container logo */
+.logo-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Điều chỉnh hero content */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+}
+/* Điều chỉnh style cho logo và content */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.logo-container {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+  }
+  
+  .logo-container {
+    margin: 20px 0;
+  }
+}
+.logo-container {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo {
+    width: 120px;
+  }
+  
+  .logo-container {
+    margin: 5px 0;
+  }
+}
+.business-type-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
