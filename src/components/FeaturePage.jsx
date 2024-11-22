@@ -15,6 +15,7 @@ const FeaturePage = () => {
     },
     {
       title: "Phù hợp hầu hết với tất cả các loại hình vui chơi",
+      subtitle: "CtrlPark là một giải pháp công nghệ tiên tiến được thiết kế để tối ưu hóa hoạt động quản lý tại các khu vui chơi giải trí, công viên, trung tâm thương mại, và các điểm du lịch. Đây là một nền tảng giúp đơn giản hóa quy trình vận hành, nâng cao trải nghiệm khách hàng, và đảm bảo hiệu quả kinh doanh vượt trội...",
       items: [
         {
           icon: "/icons/theme-park.png",
@@ -40,7 +41,7 @@ const FeaturePage = () => {
       type: "business-types"
     },
     {
-      title: "MÔ HÌNH TỔNG QUAN HỆ THỐNG",
+      title: "Mô hình tổng quan hệ thống",
       type: "system-overview",
       components: {
         payments: [
@@ -71,7 +72,53 @@ const FeaturePage = () => {
       }
     },
     {
-      title: "MÔ HÌNH TRIỂN KHAI",
+      title: "Chức năng hệ thống",
+      type: "system-features",
+      features: [
+        {
+          icon: "/icons/features/ticket.png",
+          title: "Quản lý vé",
+          items: [
+            "Đặt vé trực tuyến",
+            "Quản lý đơn hàng",
+            "Kiểm soát vé vào cổng",
+            "Báo cáo doanh thu"
+          ]
+        },
+        {
+          icon: "/icons/features/customer.png", 
+          title: "Quản lý khách hàng",
+          items: [
+            "Thông tin khách hàng",
+            "Lịch sử giao dịch",
+            "Chương trình khuyến mãi",
+            "Chăm sóc khách hàng"
+          ]
+        },
+        {
+          icon: "/icons/features/report.png",
+          title: "Báo cáo & Thống kê",
+          items: [
+            "Báo cáo doanh thu",
+            "Thống kê lượt khách",
+            "Phân tích xu hướng",
+            "Dự báo kinh doanh"
+          ]
+        },
+        {
+          icon: "/icons/features/settings.png",
+          title: "Cấu hình hệ thống",
+          items: [
+            "Quản lý người dùng",
+            "Phân quyền truy cập",
+            "Cài đặt thanh toán",
+            "Tùy chỉnh giao diện"
+          ]
+        }
+      ]
+    },
+    {
+      title: "Mô hình triển khai",
       type: "deployment-model",
       steps: [
         {
@@ -146,6 +193,7 @@ const FeaturePage = () => {
         return (
           <div className="business-types-slide slide">
             <h2>{slide.title}</h2>
+            <p className="subtitle">{slide.subtitle}</p>
             <div className="business-types-grid">
               {slide.items.map((item, index) => (
                 <div key={index} className="business-type-item">
@@ -228,6 +276,27 @@ const FeaturePage = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        );
+      case 'system-features':
+        return (
+          <div className="system-features-slide slide">
+            <h2>{slide.title}</h2>
+            <div className="features-grid">
+              {slide.features.map((feature, index) => (
+                <div key={index} className="feature-card">
+                  <div className="feature-icon">
+                    <img src={feature.icon} alt={feature.title} />
+                  </div>
+                  <h3>{feature.title}</h3>
+                  <ul className="feature-list">
+                    {feature.items.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         );

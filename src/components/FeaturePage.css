@@ -146,23 +146,58 @@ h1, h2, h3 {
 
 /* Business types slide */
 .business-types-slide {
-  background: linear-gradient(135deg, #00A0E3 0%, #0047BB 100%);
-  padding: 60px 20px;
   text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
+  align-items: center;
+  background: linear-gradient(135deg, #00A0E3 0%, #0047BB 100%);
+  color: white;
+  padding-top: 180px;
 }
 
 .business-types-slide h2 {
-  color: white;
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 60px;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0.5px;
+}
+
+.business-types-slide .subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto 40px;
+  padding: 30px 40px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.business-types-slide .subtitle:before,
+.business-types-slide .subtitle:after {
+  content: '"';
+  position: absolute;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.business-types-slide .subtitle:before {
+  top: 10px;
+  left: 15px;
+}
+
+.business-types-slide .subtitle:after {
+  bottom: -20px;
+  right: 15px;
 }
 
 .business-type-item {
@@ -946,4 +981,117 @@ h1, h2, h3 {
 .slick-dots li:hover button {
   border-color: white;
   background: rgba(255, 255, 255, 0.3);
+}
+
+/* System Features Slide */
+.system-features-slide {
+  background: linear-gradient(135deg, #00A0E3 0%, #0047BB 100%);
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.system-features-slide h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 40px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.feature-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  margin: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.feature-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .system-features-slide h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-card {
+    padding: 20px;
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .feature-icon img {
+    width: 30px;
+    height: 30px;
+  }
 }
