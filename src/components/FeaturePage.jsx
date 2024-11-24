@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import './FeaturePage.css';
 
 const FeaturePage = () => {
+  const sliderRef = React.useRef(null);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -12,7 +14,44 @@ const FeaturePage = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    cssEase: 'linear'
+    cssEase: 'linear',
+    swipe: true,
+    touchThreshold: 1000,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          arrows: false,
+          swipe: true,
+          touchThreshold: 1000,
+          adaptiveHeight: true
+        }
+      }
+    ]
+  };
+
+  const [touchStart, setTouchStart] = React.useState(null);
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.touches[0].clientY);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!touchStart) return;
+    
+    const touchEnd = e.touches[0].clientY;
+    const diff = touchStart - touchEnd;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        sliderRef.current.slickNext();
+      } else {
+        sliderRef.current.slickPrev();
+      }
+      setTouchStart(null);
+    }
   };
 
   const slides = [
@@ -89,7 +128,7 @@ const FeaturePage = () => {
           icon: "/icons/features/ticket.png",
           title: "Quản lý vé",
           items: [
-            "Đặt vé trực tuyến",
+            "Đặt vé offline, online",
             "Quản lý đơn hàng",
             "Kiểm soát vé vào cổng",
             "Báo cáo doanh thu"
@@ -116,13 +155,33 @@ const FeaturePage = () => {
           ]
         },
         {
+          icon: "/icons/features/product.png",
+          title: "Quản lý sản phẩm & kho",
+          items: [
+            "Quản lý sản phẩm, hàng hóa",
+            "Combo vé + đồ ăn, đồ uống",
+            "Quản lý kho và tồn kho",
+            "Báo cáo nhập xuất kho"
+          ]
+        },
+        {
+          icon: "/icons/features/kiosk.png",
+          title: "Self Kiosk tự động",
+          items: [
+            "Bán vé tự động 24/7",
+            "Thanh toán đa phương thức",
+            "In vé & hóa đơn tự động",
+            "Tích hợp quét mã QR"
+          ]
+        },
+        {
           icon: "/icons/features/settings.png",
           title: "Cấu hình hệ thống",
           items: [
             "Quản lý người dùng",
             "Phân quyền truy cập",
             "Cài đặt thanh toán",
-            "Tùy chỉnh giao diện"
+            "Tích hợp HĐĐT"
           ]
         }
       ]
@@ -299,8 +358,8 @@ const FeaturePage = () => {
   };
 
   return (
-    <div className="feature-page">
-      <Slider {...settings}>
+    <div className="feature-page" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+      <Slider ref={sliderRef} {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
             {renderSlide(slide)}
