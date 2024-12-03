@@ -43,11 +43,19 @@ const FeaturePage = () => {
     
     const touchEnd = e.touches[0].clientY;
     const diff = touchStart - touchEnd;
+    
+    // Lấy slide hiện tại
+    const currentSlide = document.querySelector('.slick-current > div');
+    
+    // Kiểm tra xem đã scroll đến cuối hoặc đầu chưa
+    const isAtTop = currentSlide.scrollTop === 0;
+    const isAtBottom = currentSlide.scrollHeight - currentSlide.scrollTop === currentSlide.clientHeight;
 
+    // Chỉ cho phép chuyển slide khi đã scroll hết nội dung
     if (Math.abs(diff) > 50) {
-      if (diff > 0) {
+      if (diff > 0 && isAtBottom) {
         sliderRef.current.slickNext();
-      } else {
+      } else if (diff < 0 && isAtTop) {
         sliderRef.current.slickPrev();
       }
       setTouchStart(null);
@@ -57,33 +65,33 @@ const FeaturePage = () => {
   const slides = [
     {
       title: "GIẢI PHÁP QUẢN LÝ KHU VUI CHƠI THÔNG MINH",
-      subtitle: "CtrlPark",
+      subtitle: "THink Ticket",
       website: "Website: invade.vn",
       hotline: "Hotline 24/7: 0899 023 368",
       type: "hero"
     },
     {
       title: "Phù hợp hầu hết với tất cả các loại hình vui chơi",
-      subtitle: "CtrlPark là một giải pháp công nghệ tiên tiến được thiết kế để tối ưu hóa hoạt động quản lý tại các khu vui chơi giải trí, công viên, trung tâm thương mại, và các điểm du lịch. Đây là một nền tảng giúp đơn giản hóa quy trình vận hành, nâng cao trải nghiệm khách hàng, và đảm bảo hiệu quả kinh doanh vượt trội...",
+      subtitle: "THink Ticket là một giải pháp công nghệ tiên tiến được thiết kế để tối ưu hóa hoạt động quản lý tại các khu vui chơi giải trí, công viên, trung tâm thương mại, và các điểm du lịch. Đây là một nền tảng giúp đơn giản hóa quy trình vận hành, nâng cao trải nghiệm khách hàng, và đảm bảo hiệu quả kinh doanh vượt trội...",
       items: [
         {
-          icon: "/icons/theme-park.png",
+          icon: "/public/icons/theme-park.png",
           text: "CÔNG VIÊN CHỦ ĐỀ"
         },
         {
-          icon: "/icons/water-park.png",
+          icon: "/public/icons/water-park.png",
           text: "CÔNG VIÊN NƯỚC"
         },
         {
-          icon: "/icons/mall.png",
+          icon: "/public/icons/mall.png",
           text: "TRUNG TÂM GIẢI TRÍ"
         },
         {
-          icon: "/icons/temple.png",
+          icon: "/public/icons/temple.png",
           text: "DU LỊCH TÂM LINH"
         },
         {
-          icon: "/icons/climbing.png",
+          icon: "/public/icons/climbing.png",
           text: "TỔ HỢP TẮM KHOÁNG"
         }
       ],
@@ -94,29 +102,29 @@ const FeaturePage = () => {
       type: "system-overview",
       components: {
         payments: [
-          { icon: "/icons/payment/vnpay.png", name: "VNPay" },
-          { icon: "/icons/payment/momo.png", name: "Momo" },
-          { icon: "/icons/payment/zalopay.png", name: "ZaloPay" },
-          { icon: "/icons/payment/onepay.png", name: "OnePay" }
+          { icon: "/public/icons/payment/vnpay.png", name: "VNPay" },
+          { icon: "/public/icons/payment/momo.png", name: "Momo" },
+          { icon: "/public/icons/payment/zalopay.png", name: "ZaloPay" },
+          { icon: "/public/icons/payment/onepay.png", name: "OnePay" }
         ],
         core: {
-          Payment: { icon: "/icons/payment-box.png" },
-          Center: { icon: "/icons/gear.png" },
-          Ticket: { icon: "/icons/ticket-box.png" }
+          Payment: { icon: "/public/icons/payment-box.png" },
+          Center: { icon: "/public/icons/gear.png" },
+          Ticket: { icon: "/public/icons/ticket-box.png" }
         },
         integrations: [
-          { name: "Mobile App", icon: "/icons/mobile-app.png", color: "blue" },
-          { name: "B2C/B2B", icon: "/icons/b2c.png", color: "red" },
-          { name: "Social", icon: "/icons/social.png", color: "yellow" },
-          { name: "OTAs, eCommerce", icon: "/icons/ecommerce.png", color: "orange" },
-          { name: "Ticketcounter", icon: "/icons/ticket.png", color: "green" },
-          { name: "Self Kiosk", icon: "/icons/kiosk.png", color: "purple" }
+          { name: "Mobile App", icon: "/public/icons/mobile-app.png", color: "blue" },
+          { name: "B2C/B2B", icon: "/public/icons/b2c.png", color: "red" },
+          { name: "Social", icon: "/public/icons/social.png", color: "yellow" },
+          { name: "OTAs, eCommerce", icon: "/public/icons/ecommerce.png", color: "orange" },
+          { name: "Ticketcounter", icon: "/public/icons/ticket.png", color: "green" },
+          { name: "Self Kiosk", icon: "/public/icons/kiosk.png", color: "purple" }
         ],
         controls: [
-          { name: "Access Control", icon: "/icons/access.png" },
-          { name: "Display", icon: "/icons/display.png" },
-          { name: "Mobile Check", icon: "/icons/mobile-check.png" },
-          { name: "Smart Lock", icon: "/icons/smart-lock.png" }
+          { name: "Access Control", icon: "/public/icons/access.png" },
+          { name: "Display", icon: "/public/icons/display.png" },
+          { name: "Mobile Check", icon: "/public/icons/mobile-check.png" },
+          { name: "Smart Lock", icon: "/public/icons/smart-lock.png" }
         ]
       }
     },
@@ -125,7 +133,7 @@ const FeaturePage = () => {
       type: "system-features",
       features: [
         {
-          icon: "/icons/features/ticket.png",
+          icon: "/public/icons/features/ticket.png",
           title: "Quản lý vé",
           items: [
             "Đặt vé offline, online",
@@ -135,7 +143,7 @@ const FeaturePage = () => {
           ]
         },
         {
-          icon: "/icons/features/customer.png", 
+          icon: "/public/icons/features/customer.png", 
           title: "Quản lý khách hàng",
           items: [
             "Thông tin khách hàng",
@@ -145,7 +153,7 @@ const FeaturePage = () => {
           ]
         },
         {
-          icon: "/icons/features/report.png",
+          icon: "/public/icons/features/report.png",
           title: "Báo cáo & Thống kê",
           items: [
             "Báo cáo doanh thu",
@@ -155,7 +163,7 @@ const FeaturePage = () => {
           ]
         },
         {
-          icon: "/icons/features/product.png",
+          icon: "/public/icons/features/product.png",
           title: "Quản lý sản phẩm & kho",
           items: [
             "Quản lý sản phẩm, hàng hóa",
@@ -165,7 +173,7 @@ const FeaturePage = () => {
           ]
         },
         {
-          icon: "/icons/features/kiosk.png",
+          icon: "/public/icons/features/kiosk.png",
           title: "Self Kiosk tự động",
           items: [
             "Bán vé tự động 24/7",
@@ -175,7 +183,7 @@ const FeaturePage = () => {
           ]
         },
         {
-          icon: "/icons/features/settings.png",
+          icon: "/public/icons/features/settings.png",
           title: "Cấu hình hệ thống",
           items: [
             "Quản lý người dùng",
@@ -191,22 +199,22 @@ const FeaturePage = () => {
       type: "deployment-model",
       steps: [
         {
-          icon: "/icons/requirement.png",
+          icon: "/public/icons/requirement.png",
           title: "Khảo sát & Phân tích",
           description: "Khảo sát hiện trạng, phân tích yêu cầu và đề xuất giải pháp phù hợp"
         },
         {
-          icon: "/icons/design.png",
+          icon: "/public/icons/design.png",
           title: "Thiết kế & Tùy biến",
           description: "Thiết kế giao diện, tùy chỉnh tính năng theo yêu cầu đặc thù"
         },
         {
-          icon: "/icons/setup.png",
+          icon: "/public/icons/setup.png",
           title: "Triển khai & Cài đặt",
           description: "Lắp đặt thiết bị, cài đặt phần mềm và tích hợp hệ thống"
         },
         {
-          icon: "/icons/training.png",
+          icon: "/public/icons/training.png",
           title: "Đào tạo & Bàn giao",
           description: "Đào tạo nhân viên vận hành, bàn giao tài liệu hướng dẫn"
         }
@@ -267,7 +275,9 @@ const FeaturePage = () => {
               <div className="payment-box">
                 <div className="payment-methods">
                   {slide.components.payments.map((payment, index) => (
-                    <img key={index} src={payment.icon} alt={payment.name} />
+                    <div key={index} className="payment-method-item">
+                      <img src={payment.icon} alt={payment.name} />
+                    </div>
                   ))}
                 </div>
               </div>
