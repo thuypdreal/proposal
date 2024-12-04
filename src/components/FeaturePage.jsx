@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -33,6 +33,8 @@ const FeaturePage = () => {
   };
 
   const [touchStart, setTouchStart] = React.useState(null);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleTouchStart = (e) => {
     setTouchStart(e.touches[0].clientY);
@@ -228,6 +230,72 @@ const FeaturePage = () => {
           { icon: "⬆️", text: "Nâng cấp hệ thống" }
         ]
       }
+    },
+    {
+      title: "Giao diện hệ thống",
+      type: "system-interface",
+      interfaces: [
+        {
+          icon: "/public/icons/interface/single_ticket.png",
+          title: "Bán vé lẻ",
+          description: "Giao diện bán vé trực tiếp tại quầy, hỗ trợ nhiều loại vé và thanh toán đa phương thức"
+        },
+        {
+          icon: "/public/icons/interface/booking.png", 
+          title: "Booking vé",
+          description: "Giao diện đặt vé đoàn"
+        }
+      ]
+    },
+    {
+      title: "Giao diện hệ thống",
+      type: "system-interface",
+      interfaces: [
+        {
+          icon: "/public/icons/interface/package.png",
+          title: "Cấu hình gói dịch vụ",
+          description: "Giao diện admin cấu hình gói dịch vụ"
+        },
+        {
+          icon: "/public/icons/interface/report.png", 
+          title: "Báo cáo",
+          description: "Giao diện admin xem báo cáo"
+        }
+      ]
+    },
+    {
+      title: "Giao diện hệ thống",
+      type: "system-interface",
+      interfaces: [
+        {
+          icon: "/public/icons/interface/mobile.png",
+          title: "Mobile app check vé",
+          description: "Giao diện mobile app check vé"
+        },
+        {
+          icon: "/public/icons/interface/report.png", 
+          title: "Báo cáo",
+          description: "Giao diện admin xem báo cáo"
+        }
+      ]
+    },
+    {
+      title: "Dự án đã triển khai",
+      type: "deployed-projects",
+      projects: [
+        {
+          name: "Ban quản lý di tích & thắng cảnh Chùa Hương",
+          location: "Hương Sơn, Mỹ Đức, Hà Nội",
+          image: "/public/projects/chua-huong-1.jpg",
+          description: "Hệ thống quản lý bán vé thắng cảnh Chùa Hương"
+        },
+        {
+          name: "Hợp tác xã dịch vụ du lịch Chùa Hương",
+          location: "Hương Sơn, Mỹ Đức, Hà Nội",
+          image: "/public/projects/chua-huong-2.jpg",
+          description: "Hệ thống quản lý bán vé đò, thuyền và điều phối lái đò"
+        }
+      ]
     }
   ];
 
@@ -362,10 +430,73 @@ const FeaturePage = () => {
             </div>
           </div>
         );
+      case 'system-interface':
+        return (
+          <div className="system-interface-slide slide">
+            <h2>{slide.title}</h2>
+            <div className="interface-grid">
+              {slide.interfaces.map((item, index) => (
+                <div key={index} className="interface-card">
+                  <div 
+                    className="interface-preview"
+                    onClick={() => {
+                      setSelectedImage(item.icon);
+                      setShowImageModal(true);
+                    }}
+                  >
+                    <img src={item.icon} alt={item.title} />
+                    <div className="preview-overlay">
+                      <span>Click để xem chi tiết</span>
+                    </div>
+                  </div>
+                  <div className="interface-info">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {showImageModal && (
+              <ImageModal 
+                image={selectedImage} 
+                onClose={() => setShowImageModal(false)} 
+              />
+            )}
+          </div>
+        );
+      case 'deployed-projects':
+        return (
+          <div className="deployed-projects-slide slide">
+            <h2>{slide.title}</h2>
+            <div className="projects-grid">
+              {slide.projects.map((project, index) => (
+                <div key={index} className="project-card">
+                  <div className="project-image">
+                    <img src={project.image} alt={project.name} />
+                  </div>
+                  <div className="project-info">
+                    <h3>{project.name}</h3>
+                    <p className="location">{project.location}</p>
+                    <p className="description">{project.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
       default:
         return null;
     }
   };
+
+  const ImageModal = ({ image, onClose }) => (
+    <div className="image-modal-overlay" onClick={onClose}>
+      <div className="image-modal-content">
+        <img src={image} alt="Preview" onClick={(e) => e.stopPropagation()} />
+        <button className="modal-close-btn" onClick={onClose}>×</button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="feature-page" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
@@ -376,6 +507,12 @@ const FeaturePage = () => {
           </div>
         ))}
       </Slider>
+      {showImageModal && (
+        <ImageModal 
+          image={selectedImage} 
+          onClose={() => setShowImageModal(false)} 
+        />
+      )}
     </div>
   );
 };
