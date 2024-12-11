@@ -1,0 +1,108 @@
+.booking-online {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa, #e0e0e0);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-online h2 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.tour-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tour-info select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: #333;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tour-info select:hover {
+  border-color: #3498db;
+}
+
+.tour-info select:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+}
+
+.location-info {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+}
+
+.location-info p {
+  color: #2c3e50;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.location-info button {
+  width: 100%;
+  padding: 14px 28px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.location-info button:hover:not(:disabled) {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.location-info button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .booking-online {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .booking-online h2 {
+    font-size: 1.8rem;
+  }
+
+  .location-info {
+    padding: 1rem;
+  }
+}
+
+.custom-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

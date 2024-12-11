@@ -68,8 +68,9 @@ const FeaturePage = () => {
     {
       title: "GIẢI PHÁP QUẢN LÝ KHU VUI CHƠI THÔNG MINH",
       subtitle: "THink Ticket",
-      website: "Website: invade.vn",
+      website: "Website: thinksoft.com.vn",
       hotline: "Hotline 24/7: 0899 023 368",
+      email: "Email: contact@thinksoft.com.vn",
       type: "hero"
     },
     {
@@ -314,6 +315,7 @@ const FeaturePage = () => {
             <div className="contact-info">
               <p>{slide.website}</p>
               <p>{slide.hotline}</p>
+              <p>{slide.email}</p>
             </div>
           </div>
         );
